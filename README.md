@@ -1,5 +1,11 @@
 # Code optimization for STM-32 f103/STM-32 F407 Discovery Time and memory
 
+### My stuff
+
+slides: https://www.canva.com/design/DAGYIhh5ce4/nh29Mfb10Jt2mMzgli42kg/view?utm_content=DAGYIhh5ce4&utm_campaign=designshare&utm_medium=link&utm_source=editor
+
+docs: https://docs.google.com/document/d/1c5ZmoUhJryPKpuOPlEtO79nmxWDM9-8CV-M3vkMHEAg/edit?usp=sharing
+
 ## Literature review
 
 ### Using C
