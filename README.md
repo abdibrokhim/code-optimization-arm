@@ -46,6 +46,14 @@ compare the execution time of the two programs;
 > book says:
 ![execute-time-c-asm-book](stuff/execute-time-c-asm-book.png)
 
+### Result verification
+
+enter `verify` folder and run the following command;
+    
+```bash
+gcc driver.c bubble_sort.c bubble_sort_asm.s -o main
+```
+
 ## References
 
 - Embedded systems. 2nd edition. ARM Programming and Optimization by Jason D. Bakos. [here](https://books.google.co.uz/books?hl=en&lr=&id=NFLSEAAAQBAJ&oi=fnd&pg=PP1&dq=code+optimization+in+embedded+systems+ARM+Cortex-M+microcontrollers&ots=T3i_rewRb5&sig=8zz_aNTTMfCUmMFtyiUifn3w6i0&redir_esc=y#v=onepage&q&f=false)
