@@ -190,3 +190,22 @@ References
 
 ---
 
+chat:
+
+Let's do ASCON
+
+This is quite new algorithm. It's already optimized for some systems, so, you can download good source code
+
+Analyze it, with CubeMX you can upload the code to the device and measure memory consumption
+
+I would like to have a More complicated system to implement. For example, reading sensors, reacting to them, sending encrypted data, receiving encrypted answer/request, decrypt it and execute the order
+
+https://github.com/haskucy/ascon_implementation_C/blob/main/ascon.c 
+( This code uses 64bit architecture. But STM32 is 32bit processor )
+
+https://github.com/ascon/ascon-c/tree/f1601cb5ff52e65baa475fcc6959e7d6e0be8d77/src 
+( Here you can find way more variety of implementations )
+
+
+---
+
