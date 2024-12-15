@@ -153,5 +153,5 @@ int main() {
    associated_data(state, 3, associated_data_text);
    decrypt(state, 2, plaintextdecrypt, ciphertextdecrypt);
    printf("\nplaintext: %016I64x %016I64x\n", plaintextdecrypt[0], plaintextdecrypt[1]);
-55   finalization(state, key);
+   finalization(state, key);
    printf("tag: %016I64x %016I64x\n", state[3], state[4]);}

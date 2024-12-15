@@ -1,21 +1,3 @@
-[what should we do?]:
-<info>
-Let's do ASCON
-
-This is quite new algorithm. It's already optimized for some systems, so, you can download good source code
-
-Analyze it, with CubeMX you can upload the code to the device and measure memory consumption
-
-I would like to have a More complicated system to implement. For example, reading sensors, reacting to them, sending encrypted data, receiving encrypted answer/request, decrypt it and execute the order
-
-https://github.com/haskucy/ascon_implementation_C/blob/main/ascon.c 
-( This code uses 64bit architecture. But STM32 is 32bit processor )
-
-https://github.com/ascon/ascon-c/tree/f1601cb5ff52e65baa475fcc6959e7d6e0be8d77/src 
-( Here you can find way more variety of implementations )
-</info>
-
-
 # Report: Code optimization for STM-32 f103/STM-32 F407 Discovery Time and Memory
 
 ## Literature review
@@ -33,9 +15,7 @@ ARM processors can be programmed using various high-level languages, with C bein
 Note: The STM32F103 microcontroller is based on the ARM architecture.
 
 ASCON
-<about>
-...
-</about>
+ASCON is a family of lightweight cryptographic primitives designed for the Internet of Things (IoT) and embedded systems.
 
 
 ### Research focus & goals
@@ -49,8 +29,69 @@ Identify performance bottlenecks and their solutions.
 Study different algorithms and their performance to the given task.
 
 
-
 ## Methods
+
+### STM32F4 – Code Optimization
+
+We know that `embedded systems` usually have *limited computing/memory resources*. But we can always use various optimizations to *reduce space size* or *improve computing performance*. Here are some of the most common optimization techniques:
+
+#### Memory Footprint Optimization
+
+Build without enabled optimization
+
+![Build without enabled optimization](/stuff/build-without-opt.png)
+
+Build with enabled optimization
+
+![Build with enabled optimization](/stuff/build-with-opt.png)
+
+From the images above, we can see that the code size has been reduced from `(141,320 B)` to `(3,920 B)`.
+
+#### Isolated Optimization
+
+Here, one (or more) optimizations can be selected.
+
+![Isolated Optimization](/stuff/isolated-opt.png)
+
+![Benchmark Singleopt](/stuff/benchmark-singleopt.png)
+
+The experimental results show the following:
+
+* Size optimized library newlib achieves the best result reducing from `(O2: 137,732 B)`, `(O1: 141,248 B)`, `(NA: 141,320 B)`, `(O5: 141,320 B)`, `(O7: 141,320 B)`, `(O6: 141,344 B)` to approx `(O8: 28,028 B)`.
+* There are many unused sections in the original, which are removed by the second best optimization `(O4)`.
+* The space optimizations `(O3)` performs similarly good.
+* Some overhead can be reduced by disabling exceptions (O2). The optimization effect is diminished by the fact, exception handling is not removed from the (already compiled) libraries.
+* Minimal advantage is obtained by replacing new and delete with malloc and free `(O1)`.
+* Other optimization `(O5, O7)` are ineffective in our test case, and perform as no optimization is used `(NA)`. `(O6)` performs even worse than `(NA)`.
+
+#### Optimization Combinations
+
+Here, multiple optimizations can be selected.
+
+![Optimization Combinations](stuff/optimization-combinations.png)
+
+The experimental results show the following optimization combination are the most effective:
+
+* *O1 (mem. allocation)*, *O2 (exception handling)*, *O3 (size optimization)* reduce the code size from `141,320 B` to `13,060 B`.
+* *O8 (size optimized library)* with *(O1, O2, O3)* reduce the code size to `8,616 B`.
+* *O4 (remove unused code)* with *(O1, O2, O3, O8)* reduce the code size to `4,012 B`.
+* *(O1-O8)* reduce the code size to `4,012 B`.
+* **C++** exception handling is space consuming. The best optimization without *O2* is `11,700 B` *(see O1 O3 O4 O8)*.
+* **C++** memory management without exception handling is relatively cheap. `(O2 O3 O4 O8)` reduce the code size to `4248 B`.
+
+#### Identify space-wasting code
+
+![Identify space-wasting code](/stuff/space-wasting-code.png)
+
+The memory management (see top 3: _mallor_r, __malloc_av_, _free_r) consumes a huge amount of space relative to other part of the code.
+
+We can simply use `(08)` to mitigate this issue.
+
+![Optimization space-wasting code](/stuff/space-wasting-code-opt.png)
+
+### ASCON
+
+
 
 ## Results
 
