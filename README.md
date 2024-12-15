@@ -13,7 +13,7 @@ docs: https://docs.google.com/document/d/1c5ZmoUhJryPKpuOPlEtO79nmxWDM9-8CV-M3vk
 compile `bubble_sort.c` file using; 
 
 ```bash
-gcc bubble_sort.c -03 -o bubble_sort
+gcc bubble_sort.c -O3 -o bubble_sort
 ```
 
 execute and time the program;

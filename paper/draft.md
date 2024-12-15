@@ -207,5 +207,10 @@ https://github.com/ascon/ascon-c/tree/f1601cb5ff52e65baa475fcc6959e7d6e0be8d77/s
 ( Here you can find way more variety of implementations )
 
 
+Report needs
+Methods
+Results
+Discussion
+
 ---
 
