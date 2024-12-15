@@ -46,7 +46,7 @@ time ./bubble_sort
 ```
 
 > book says:
-![execute-time](stuff/execute-time.png)
+![execute-time](/stuff/execute-time.png)
 
 Measurements from this procedure highlight the direct impact of compiler optimizations on execution time.
 
@@ -66,10 +66,10 @@ time ./bubble_sort_asm
 
 Comparing execution times between C and assembly implementations reveals how much overhead a high-level language imposes. According to references, assembly implementations often achieve faster execution but at the cost of greater development complexity.
 
-![execute-time-c-asm](stuff/execute-time-c-asm.png)
+![execute-time-c-asm](/stuff/execute-time-c-asm.png)
 
 > book says:
-![execute-time-c-asm-book](stuff/execute-time-c-asm-book.png)
+![execute-time-c-asm-book](/stuff/execute-time-c-asm-book.png)
 
 ### Result verification
 
