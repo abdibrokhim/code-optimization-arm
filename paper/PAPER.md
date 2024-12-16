@@ -239,20 +239,6 @@ By identifying and targeting the most space-consuming code segments, developers 
    - Apply the permutation 12 times again.
    - XOR key again and output the tag from the lower lanes of the state.
 
-
-### Testing and Verification
-
-- The speaker prints intermediate states to ensure the code runs and doesn’t crash.
-- Without official test vectors from the final standard or comparison to reference implementations, correctness verification is tentative at this stage.
-- The final displayed ciphertext and tag are placeholders, as no official checks were done. Still, the logic aligns with the ASCON specification steps.
-
-
-### What’s Missing or Simplified?
-
-- **Associated Data (AD) Processing**: Not implemented, but would follow similar steps: absorb AD into the state, permute, and domain-separate.
-- **Padding for Partial Blocks**: The transcript assumes full blocks. Real implementation must handle partial blocks by padding.
-- **Official Test Vectors**: The final standard might provide test vectors for validation. Until then, confidence in correctness is limited.
-
 ---
 
 ## Results
