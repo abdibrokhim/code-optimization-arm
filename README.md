@@ -6,6 +6,8 @@ slides: https://www.canva.com/design/DAGYIhh5ce4/nh29Mfb10Jt2mMzgli42kg/view?utm
 
 docs: https://docs.google.com/document/d/1c5ZmoUhJryPKpuOPlEtO79nmxWDM9-8CV-M3vkMHEAg/edit?usp=sharing
 
+kindly check `paper` folder for the rest of the stuff.
+
 ## Literature review
 
 ### Using C
